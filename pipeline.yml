@@ -4,11 +4,11 @@ resources:
   type: git
   source:
     uri: https://github.com/18F/cf-dockerized-buildpack.git
-    branch: examples 
+    branch: examples
 - name: cflinuxfs2-release
-  type: bosh-io-release
+  type: docker-image
   source:
-    repository: cloudfoundry/cflinuxfs2-rootfs-release
+    repository: cloudfoundry/cflinuxfs2
 - name: registry-image
   type: docker-image
   source:
@@ -112,6 +112,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -133,6 +134,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -154,6 +156,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -175,6 +178,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -196,6 +200,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -217,6 +222,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -238,6 +244,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
@@ -259,6 +266,7 @@ jobs:
     trigger: true
   - get: cflinuxfs2-release
     trigger: true
+    params: {save: true}
   - task: do-build-args
     privileged: true
     file: cf-buildpack-image-src/ci/do-build-args.yml
